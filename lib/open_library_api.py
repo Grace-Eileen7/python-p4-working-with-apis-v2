@@ -1,3 +1,5 @@
+# lib/open_library_api.py
+
 import requests
 import json
 
@@ -9,8 +11,6 @@ class Search:
 
         search_term_formatted = search_term.replace(" ", "+")
         fields = ["title", "author_name"]
-        # formats the list into a comma separated string
-        # output: "title,author_name"
         fields_formatted = ",".join(fields)
         limit = 1
 
@@ -45,12 +45,15 @@ class Search:
         return response_formatted
 
 
+# Uncomment to test raw content
 # results = Search().get_search_results()
 # print(results)
 
+# Uncomment to test JSON
 # results_json = Search().get_search_results_json()
 # print(json.dumps(results_json, indent=1))
 
+# Final interactive test
 search_term = input("Enter a book title: ")
 result = Search().get_user_search_results(search_term)
 print("Search Result:\n")
